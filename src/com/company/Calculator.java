@@ -3,8 +3,6 @@ package com.company;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//import sun.jvm.hotspot.debugger.UnalignedAddressException;
-
 public class Calculator {
 	private String operation;
 	private Scanner scanner;
