@@ -3,6 +3,7 @@ package com.company;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+// the class name is capitalized Calculator {}
 public class Calculator {
 	private String operation;
     //	данные получаем в программу с помощью Scanner
