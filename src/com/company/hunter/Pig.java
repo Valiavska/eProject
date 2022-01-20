@@ -21,4 +21,13 @@ public class Pig extends Animal{
     public void sleep() {
         System.out.println("Pig sleep: 7 hours");
     }
+
+    @Override
+    public String toString() {
+        return "Pig{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

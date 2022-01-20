@@ -1,5 +1,7 @@
 package com.company.hunter;
 
+import com.company.Plane;
+
 public class Tiger extends Animal{
 
     public Tiger(String name, int weight, String type) {
@@ -21,4 +23,12 @@ public class Tiger extends Animal{
         System.out.println("Tiger sleep: 18 hours");
     }
 
+    @Override
+    public String toString() {
+        return "Tiger{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
