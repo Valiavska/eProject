@@ -31,7 +31,6 @@ public class Cat extends Animal{
                 '}';
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -51,4 +50,5 @@ public class Cat extends Animal{
         result = 31 * result + type.hashCode();
         return result;
     }
+
 }

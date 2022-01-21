@@ -25,7 +25,9 @@ public class Plane {
         System.out.println("I am moving" + distanceKm);
     }
 
-    // generate method toString() for our object "plane" // @Override -> перекрываем метод родителя Object
+    // generate method toString() for our object "plane"
+    // @Override -> перекрываем метод родителя Object, тоесть переопределяем метод
+    //    @Override - это анатация, показывает, что этот метод переопределяет логику метода своего родителя "object"
     @Override
     public String toString() {
         return "Plane{" +

@@ -1,16 +1,20 @@
 package com.company;
 
-import java.util.InputMismatchException;
+import com.company.calculator_exception_hw3.NegativeNumberException;
+
 import java.util.Scanner;
 
 // the class name is capitalized Calculator {}
-public class Calculator {
+public class Calculator_hw1 {
 	private String operation;
     //	данные получаем в программу с помощью Scanner
     //	Scanner class has scanner variable
 	private Scanner scanner;
 
-	public Calculator() {
+    //	генерируем конструктор, "public" методы доступные для пользователя,
+	//	"private" - методы не доступные для пользователя
+    //	если конструктор будет "private" мы не сможем создать обьект
+	public Calculator_hw1() {
 		this.scanner = new Scanner(System.in);
 	}
     // create public method calculate() / Public -> entry point into the program, into the Calculator class
@@ -22,16 +26,28 @@ public class Calculator {
                 //call method calculationStep() / if the word starts with a LOWERCASE letter and is followed by parentheses,
 				// so this is the name of a method or function
 				System.out.println(calculationStep());
+                //	NumberFormatException - ловим исключение, ex - название исключения(можно менять)
 			} catch (NumberFormatException ex){
 				System.out.println("Wrong input data!");
+              //	ловим наше созданное исключение "NegativeNumberException" и обрабатываем его
+			} catch (NegativeNumberException e) {
+				System.out.println("our exception: NegativeNumberException");
 			}
 		}
 	}
 	// create private method calculate()
     //	if method calculationStep() is 'double' -> it should return something
-	private double calculationStep() {
+    //	выбрасываем исключение через "throws"
+	private double calculationStep() throws NegativeNumberException {
 		System.out.println("enter first number:");
+        //		Integer.parseInt - с консоли пытаемся считать Integer и ожидаем там число и
+        //		если число не придет, то выводим исключение "NumberFormatException"
 		int firstNumber = Integer.parseInt(scanner.nextLine());
+         //	создаем ситуацию для исключения и пишем наше исключение через "	throw new "
+		if (firstNumber < 0) {
+			throw new NegativeNumberException(firstNumber);
+		}
+
 		System.out.println("enter second number:");
 		int secondNumber = Integer.parseInt(scanner.nextLine());
 		System.out.println("enter operation: +, -, *, /, to perform or q if you want to quit: ");
