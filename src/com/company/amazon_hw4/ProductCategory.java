@@ -1,4 +1,4 @@
-package com.company.amazon;
+package com.company.amazon_hw4;
 
 public enum ProductCategory {
 

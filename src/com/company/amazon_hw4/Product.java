@@ -1,4 +1,4 @@
-package com.company.amazon;
+package com.company.amazon_hw4;
 
 public class Product {
 
@@ -28,5 +28,30 @@ public class Product {
                 ", release=" + release +
                 ", price=" + price +
                 '}';
+    }
+
+
+    public ProductCategory getCategory() {
+        return category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public int getRelease() {
+        return release;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }
