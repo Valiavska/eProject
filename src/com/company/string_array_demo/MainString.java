@@ -1,9 +1,8 @@
 package com.company.string_demo;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Locale;
 
-public class Main {
+public class MainString {
 
     public static void main(String[] args) {
         //  обьявили массив  "chars"
@@ -43,8 +42,6 @@ public class Main {
 
         //  method "contentEquals" that equals content string and object created with stringBuffer
         System.out.println(s2.contentEquals(stringBuffer));
-
-        System.out.println("********************************************");
 
     }
 }
