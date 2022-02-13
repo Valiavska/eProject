@@ -1,4 +1,7 @@
-package com.company.hunter;
+package com.company.hunter_hw2;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainAnimal {
 
@@ -57,5 +60,29 @@ public class MainAnimal {
         System.out.println("Show hascode Cat? " + cat.hashCode());
         System.out.println("Show hascode Cat1? " + cat1.hashCode());
         System.out.println("Equals?  " + cat.equals(cat1));
+        System.out.println("____________________________________________");
+
+        PetWalker petWalker = new PetWalker();
+        petWalker.walk(cat);
+        petWalker.walk(horse);
+        System.out.println("____________________________________________");
+
+        Animal [] animals = {cat, horse, cat1};
+        for (Animal animal: animals) {
+            petWalker.walk(animal);
+        }
+
+        //  метод "walk" может теперь не только гулять, а и принимать список животных
+        //  используя метод "checkAnimals"
+        List<Animal> animalsCheckAnimals = Arrays.asList(cat, horse, cat1);
+        PetWalker.checkAnimals(animalsCheckAnimals);
+        System.out.println("____________________***____________________");
+
+        //  так как мы применили метод wildcard ? - теперь мы можем выводить только одних котов из класса Animals
+        List<Cat> catCheckAnimals = Arrays.asList(cat, cat1);
+        PetWalker.checkAnimals(catCheckAnimals);
+        System.out.println("____________________***____________________");
+
+
     }
 }

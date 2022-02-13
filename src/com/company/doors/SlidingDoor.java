@@ -1,6 +1,7 @@
 package com.company.doors;
 
 // extends - значит, что дверь SlidingDoor должна иметь все свойства двери Door, тоесть следовать контракту
+// Если нужно использовать один контракт, то используем abstract
 public class SlidingDoor extends Door {
 
     //   конструктор  мы генерим public SlidingDoor

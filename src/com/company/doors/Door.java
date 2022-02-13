@@ -3,7 +3,8 @@ package com.company.doors;
 //  abstract - ключевое слово, значит, что все двери должны иметь свойства принаджежащие классу Door
 //  class Door является абстрактным, тоесть выделение абстракции над реальными дверьми IDoor и SlidingDoor
 public abstract class Door {
-    //    shape and color это свойства класса Door
+    //    shape and color это свойства класса Door,
+    //    значит, что при создании двери мы обязаны создать цвет и форму
     String shape;
     String color;
 

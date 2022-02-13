@@ -1,4 +1,4 @@
-package com.company.hunter;
+package com.company.hunter_hw2;
 
 public class Horse extends Animal{
 
@@ -20,15 +20,5 @@ public class Horse extends Animal{
     public void sleep() {
         System.out.println("Horse sleep: 3 hours");
     }
-
-    @Override
-    public String toString() {
-        return "Horse{" +
-                "name='" + name + '\'' +
-                ", weight=" + weight +
-                ", type='" + type + '\'' +
-                '}';
-    }
-
 
 }

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.plane;
 
 public class MainPlane {
     // create object "plane"

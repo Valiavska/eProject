@@ -1,4 +1,4 @@
-package com.company;
+package com.company.plane;
 
 import com.company.enums.PlaneTypes;
 

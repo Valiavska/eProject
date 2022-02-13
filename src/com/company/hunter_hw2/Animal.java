@@ -1,4 +1,4 @@
-package com.company.hunter;
+package com.company.hunter_hw2;
 
 public abstract class Animal {
     String name;
@@ -26,5 +26,49 @@ public abstract class Animal {
 
     public int getWeight() {
         return weight;
+    }
+
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Animal animal = (Animal) o;
+
+        if (weight != animal.weight) return false;
+        if (!name.equals(animal.name)) return false;
+        return type.equals(animal.type);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + weight;
+        result = 31 * result + type.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

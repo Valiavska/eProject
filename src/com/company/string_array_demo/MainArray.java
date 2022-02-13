@@ -1,4 +1,4 @@
-package com.company.string_demo;
+package com.company.string_array_demo;
 
 import java.util.Arrays;
 

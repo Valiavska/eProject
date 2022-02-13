@@ -1,4 +1,4 @@
-package com.company.amazon_hw4;
+package com.company.amazon_arrays_hw4;
 
 public class Product {
 

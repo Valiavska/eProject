@@ -1,7 +1,5 @@
 package com.company.amazon_collection_hw5;
 
-import com.sun.source.tree.Tree;
-
 import java.util.*;
 
 public class MainProduct {
@@ -10,39 +8,53 @@ public class MainProduct {
 
         Product product1 = new Product(
                 ProductCategory.Books,
-                "e, the Maid",
+                "e_Maid",
                 "NEW YORK TIMES BESTSELLER",
                 "English",
                 2022,
                 14);
         Product product2 = new Product(
                 ProductCategory.CellPhones,
-                "c, iPhone XR",
+                "c_iPhoneXR",
                 "64GB, Black",
                 "English",
                 2018,
                 330);
         Product product3 = new Product(
                 ProductCategory.CellPhones,
-                "b, iPhone 8 the",
+                "b_iPhone8",
                 "64GB, Space Gray",
                 "English",
                 2018,
                 219);
         Product product4 = new Product(
                 ProductCategory.CameraPhoto,
-                "d, Panasonic LUMIX the GH5M2",
+                "d_Panasonic",
                 "Mirrorless Camera with wireless live streaming - Black",
                 "English",
                 2021,
                 1482);
         Product product5 = new Product(
                 ProductCategory.CameraPhoto,
-                "a, Panasonic LUMIX the GH5M2",
+                "a_Panasonicccc",
                 "Mirrorless Camera with wireless live streaming - Black",
                 "English",
                 2021,
                 1482);
+        Product duplicateProduct5 = new Product(
+                ProductCategory.CameraPhoto,
+                "a_Panasonic",
+                "Mirrorless Camera with wireless live streaming - Black",
+                "English",
+                2021,
+                1482);
+        Product product6 = new Product(
+                ProductCategory.CameraPhoto,
+                "a_Panasonic",
+                "Mirrorless Camera with wireless live streaming - Black",
+                "English",
+                2021,
+                1);
 
 
         //        Сложить в коллекцию
@@ -51,9 +63,12 @@ public class MainProduct {
         productList.add(product2);
         productList.add(product3);
         productList.add(product4);
+        productList.add(product5);
+        productList.add(duplicateProduct5);
         System.out.println("List products: " + productList);
         System.out.println("____________________________________________");
 
+        System.out.println("they equals? " + product5.equals(duplicateProduct5));
 
         //        Разложить в три новые коллекции по категориям
         Collection<Product> cameraPhotoList = new LinkedList<>();
@@ -98,26 +113,32 @@ public class MainProduct {
         System.out.println("____________________________________________");
 
 
-        //   сортировать по цене
-        PriceComparator priceComparator = new PriceComparator();
-        TreeSet<Product> productSet = new TreeSet<>(priceComparator);
+        //   сортировать по цене, keys_1
+        PriceComparatorKeys1 priceComparatorKeys1 = new PriceComparatorKeys1();
+        TreeSet<Product> productSet = new TreeSet<>(priceComparatorKeys1);
         productSet.add(product1);
         productSet.add(product2);
         productSet.add(product3);
         productSet.add(product4);
         productSet.add(product5);
-
         System.out.println("Set products, priceComparator: \n" + productSet);
-        System.out.println("____________________________________________");
+        System.out.println("___________________*******___________________");
 
 
-        //   сортировать по названию товара
-        Comparator<Product> nameComparator = new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        };
+        //   сортировать по цене, keys_2
+        List<Product> productSett = new ArrayList<>();
+        productSett.add(product1);
+        productSett.add(product2);
+        productSett.add(product3);
+        productSett.add(product4);
+        productSett.add(product5);
+        productSett.sort(new PriceComparatorKeys2());
+        System.out.println("Set products, priceComparator: \n" + productSett);
+        System.out.println("___________________*******___________________");
+
+
+        //   сортировать по названию товара без дубликатов, keys_1
+        Comparator<Product> nameComparator = Comparator.comparing(Product::getName);
         TreeSet<Product> productSet1 = new TreeSet<>(nameComparator);
         productSet1.add(product1);
         productSet1.add(product2);
@@ -128,5 +149,30 @@ public class MainProduct {
         System.out.println("Set products, nameComparator: \n" + productSet1);
         System.out.println("____________________________________________");
 
+
+        //   сортировать по длинне слова в названии товара с дубликатами, keys_2
+        List<Product> productSet2 = new ArrayList<>();
+        productSet2.add(product1);
+        productSet2.add(product2);
+        productSet2.add(product3);
+        productSet2.add(product4);
+        productSet2.add(product5);
+        productSet2.sort(new NameComparator());
+        System.out.println("Set products, nameComparator: \n" + productSet2);
+        System.out.println("____________________________________________");
+
+
+        //   применить несколько сортировок сразу, например по имени и по цене,
+        //   значит, что сначала будет сортировать по имени, а потом по цене
+        List<Product> productSet3 = new ArrayList<>();
+        productSet3.add(product1);
+        productSet3.add(product2);
+        productSet3.add(product3);
+        productSet3.add(product4);
+        productSet3.add(product5);
+        productSet3.add(product6);
+        productSet3.sort(new NameComparator().thenComparing(new PriceComparatorKeys2()));
+        System.out.println("Set products, nameComparator: \n" + productSet3);
+        System.out.println("__________________&&&&&__________________");
     }
 }
