@@ -1,6 +1,4 @@
-package com.company.amazon_collection_hw5;
-
-import java.util.Comparator;
+package com.company.amazon_stream_hw7;
 
 public class Product{
 
